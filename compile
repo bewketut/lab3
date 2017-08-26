@@ -1,4 +1,0 @@
-#!/bin/sh
-g++ -c *.cc *.cpp
-g++ -o main *.o
-

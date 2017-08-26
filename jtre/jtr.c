@@ -1,13 +1,13 @@
 #include "jtre.h"
 #include<stdio.h>
 
-insert(int val,struct jtre t){
+insert(int val,struct jtr *t){
 struct te=search(val,t);
 
 }
 
-struct jtree *searchp(int val, char *h, struct jtre t){
-struct jtre temp=t;
+struct jtr *searchp(int val, char *h, struct jtr *t){
+struct jtr *temp=t;
 while(t){
 temp=t;
 if(t->val<val) t=t->left;
@@ -20,34 +20,34 @@ if(temp->right->val==t->val) *h='r';
 else *h='l';
 return temp;
 }
-search(int val,struct jtre t){
+search(int val,struct jtr *t){
 char *h='o';
-struct jtre par= searchp(val,&h,t);
+struct jtr *par= searchp(val,&h,t);
 if(h=='r') return par->right;
 if(h=='l') return par->left;
 return par;
 }
-jtre(int val,struct t){
+jtre(int val,struct jtr *t){
 char *h='o';
-struct jtre par=searchp(val,&h,t);
-struct jtre node= par;
+struct jtr *par=searchp(val,&h,t);
+struct jtr *temp1,*temp,*noder,*node_l;
 if(h=='r')
  noder=par->right;
 if(h=='l')
 node_l=par->left;
 if(noder){
 temp1=noder->left;
-temp2=noder->right;
+temp=noder->right;
 noder->left=par;
 par->left=temp1;
-par->right=temp2;
+par->right=temp;
 }
 if(node_l){
 temp=node_l->right;
-temp2=node_l->left;
+temp1=node_l->left;
 node_l->right=par;
 node_l->left=par->right;
 par->right=temp;
-par->left=temp2;
+par->left=temp1;
 }
 }

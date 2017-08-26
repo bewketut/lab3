@@ -2,7 +2,7 @@
 #include<stdio.h>
 
 insert(int val,struct jtr *t){
-struct te=search(val,t);
+struct jtr *te=search(val,t);
 
 }
 
